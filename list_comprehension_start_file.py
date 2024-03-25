@@ -105,6 +105,10 @@ a = [x + y for x in [10,50] for y in [20,40] if x + y > 70] #WILL BE ON FINAL
 print(a)
 
 
+
+
+
+
 ## Exercise ##
 
 # 1 Using a list comprehension, create a new list called "newlist" out of the list "numbers", 
