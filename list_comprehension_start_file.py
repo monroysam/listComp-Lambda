@@ -30,6 +30,79 @@ for i in original_list:
 
 #The filter part answers the question if the item should be transformed.
 
+#tradtional way
+old_list = [1,2,3,4,5]
+new_list = []
+
+for i in old_list:
+    i = i **2
+    new_list.append(i)
+
+print(new_list)
+
+#using list comprehension
+new_list = [i**2 for i in old_list]
+print(new_list)
+
+#1) creatae a simple list of 10 number using range()
+x = [i for i in range(10)]
+
+print(x)
+
+#2) creating a list thag evaluaties an expression
+squares = [x**2 for x in range(10)]
+print(squares)
+
+#3) creating a list from another list
+list1 = [3,4,5]
+multiplied = [item*3 for item in list1]
+print(multiplied)
+
+#4) using list comprehension for string manupulation
+list_of_words = ["The", "Force", "will", "be", "with", "you.", "Always."]
+
+items = [word[1].upper() for word in list_of_words]
+print(items)
+
+#5) lower case
+
+results = [x.lower() for x in ["A", "B", "C"]]
+print(results)
+
+#6) creating a list based on a condition
+# find the aquare of all even numbers between 1 and 10
+
+new_range = [i*i for i in range(1,11) if i % 2 == 0]
+print(new_range)
+
+#7) extracting numbers only from a string and putting it in a list
+string = "Hello 12345 World"
+numbers = [int(x) for x in string if x.isdigit()]
+print(numbers)
+letters = [x.upper() for x in string if x.isalpha()]
+print(letters)
+
+#8) extract a specific line from a file
+infile = open("test.txt", "r")
+result = [i.rstrip("\n") for i in infile if "line3" in i]
+print(result)
+
+#9) using functions in list comprehenstion
+
+def double(x):
+    return x * 2
+
+result = [double(x) for x in range(1,11)]
+print(results)
+
+#10) adding an IF condition to the above - only odd numbers
+result = [double(x) for x in range(1,11) if not x % 2 == 0]
+print(result)
+
+#11) you can add more arguments (using multiple iterators and lists):
+
+a = [x + y for x in [10,50] for y in [20,40] if x + y > 70] #WILL BE ON FINAL
+print(a)
 
 
 ## Exercise ##
@@ -70,7 +143,7 @@ dict={"Sedan": 1500, "SUV": 2000, "Pickup": 2500, "Minivan": 1600, "Van": 2400,
 
 ## Extract the numbers from the following phrase ##
 
-phrase = 'In 1984 there were 13 instances of a protest with over 1000 people attending. On average there were 15 reported injuries at each " +
+phrase = 'In 1984 there were 13 instances of a protest with over 1000 people attending. On average there were 15 reported injuries at each " \
 "event, with about 3 or 4 that were classifled as serious per event.'
 
 
