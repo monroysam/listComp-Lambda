@@ -58,7 +58,7 @@ color_list = ['red', 'black', 'white', 'green', 'orange']
 
 #Substring to search:
 removal1 = "ack"
-new_color_list = list(map(lambda color: color.strip(removal1), color_list))
+new_color_list = list(filter(lambda color: removal1 not in color, color_list))
 
 #Elements of the said list that contain specific substring:
 #['black']
@@ -66,45 +66,54 @@ print(new_color_list)
 
 #Substring to search:
 removal2 = "abc"
-new_color_list = list(map(lambda color: color.strip(removal2), color_list)) #fix this function, cuts off the "a" in "black"
+new_color_list = list(filter(lambda color: removal2 not in color, color_list))
 
 #Elements of the said list that contain specific substring:
 #[]
 print(new_color_list)
 
 
+#6)
+#check whether a given string contains a capital letter, a lower case letter, a number and a minimum length of 8 characters.
+#(This is like a password verification function, HINT: Python function 'any' may be useful)
 
-
-
-
-
-#number 5 needs fixing before you move on
-''' 6)
-check whether a given string contains a capital letter, a lower case letter, a number and a minimum length of 8 characters.
-(This is like a password verification function, HINT: Python function 'any' may be useful)
-'''
 
 str1 = "Hello8world"
+check = lambda str: any(letter.isdigit() for letter in str) and any(letter.isupper() for letter in str) and any(letter.islower() for letter in str) and len(str) >= 8
+result = check(str1)
+if result:
+    criteria = "meets criteria"
+else:
+    criteria = "doesn't meet criteria"
+print(f"{str1} {criteria}")
+
 str1 = "HELLO"
-str1= "hello"
+check = lambda str: any(letter.isdigit() for letter in str) and any(letter.isupper() for letter in str) and any(letter.islower() for letter in str) and len(str) >= 8
+result = check(str1)
+if result:
+    criteria = "meets criteria"
+else:
+    criteria = "doesn't meet criteria"
+print(f"{str1} {criteria}")
+
+str1 = "hello"
+check = lambda str: any(letter.isdigit() for letter in str) and any(letter.isupper() for letter in str) and any(letter.islower() for letter in str) and len(str) >= 8
+result = check(str1)
+if result:
+    criteria = "meets criteria"
+else:
+    criteria = "doesn't meet criteria"
+print(f"{str1} {criteria}")
 
 
-
-
-
-
-
-
-
-
-
-
-''' 7)
-Write a Python program to sort a list of tuples using Lambda.
+#7)
+#Write a Python program to sort a list of tuples using Lambda.
 
 # Original list of tuples:
 original_scores = [('English', 88), ('Science', 90), ('Maths', 97), ('Social sciences', 82)]
 
+sorting = sorted(original_scores, key = lambda score: score[1])
+print(sorting)
+
 # Expected Result:
 # [('Social sciences', 82), ('English', 88), ('Science', 90), ('Maths', 97)]
-'''
